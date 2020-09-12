@@ -1,0 +1,230 @@
+[{
+	access: [APublic]
+	doc: null
+	kind: FFun({
+		args: []
+		expr: {
+			expr: EBlock([{
+				expr: EBlock([])
+				pos: #pos
+			}, {
+				expr: ECall({
+					expr: EConst(CIdent(aa))
+					pos: #pos
+				}, [])
+				pos: #pos
+			}])
+			pos: #pos
+		}
+		params: []
+		ret: TPath({
+			name: Void
+			pack: []
+			params: []
+			sub: null
+		})
+	})
+	meta: []
+	name: new
+	pos: #pos
+}, {
+	access: [APublic]
+	doc: null
+	kind: FFun({
+		args: []
+		expr: {
+			expr: EBlock([{
+				expr: ECall({
+					expr: EField({
+						expr: EConst(CIdent(Debug))
+						pos: #pos
+					}, Log)
+					pos: #pos
+				}, [{
+					expr: EConst(CString(Start, DoubleQuotes))
+					pos: #pos
+				}])
+				pos: #pos
+			}, {
+				expr: EMeta({
+					name: await
+					params: []
+					pos: #pos
+				}, {
+					expr: ECall({
+						expr: EConst(CIdent(sleep))
+						pos: #pos
+					}, [{
+						expr: EConst(CInt(5000))
+						pos: #pos
+					}])
+					pos: #pos
+				})
+				pos: #pos
+			}, {
+				expr: ECall({
+					expr: EField({
+						expr: EConst(CIdent(Debug))
+						pos: #pos
+					}, Log)
+					pos: #pos
+				}, [{
+					expr: EConst(CString(Finish, DoubleQuotes))
+					pos: #pos
+				}])
+				pos: #pos
+			}, {
+				expr: EReturn(null)
+				pos: #pos
+			}])
+			pos: #pos
+		}
+		params: []
+		ret: null
+	})
+	meta: []
+	name: aa
+	pos: #pos
+}, {
+	access: [APrivate]
+	doc: null
+	kind: FFun({
+		args: [{
+			meta: []
+			name: ms
+			opt: false
+			type: TPath({
+				name: Int
+				pack: []
+				params: []
+				sub: null
+			})
+			value: null
+		}]
+		expr: {
+			expr: EReturn({
+				expr: ECall({
+					expr: EField({
+						expr: EField({
+							expr: EField({
+								expr: EConst(CIdent(tink))
+								pos: #pos
+							}, core)
+							pos: #pos
+						}, Promise)
+						pos: #pos
+					}, lift)
+					pos: #pos
+				}, [{
+					expr: ECall({
+						expr: EField({
+							expr: EField({
+								expr: EField({
+									expr: EConst(CIdent(tink))
+									pos: #pos
+								}, core)
+								pos: #pos
+							}, Future)
+							pos: #pos
+						}, async)
+						pos: #pos
+					}, [{
+						expr: EFunction(FAnonymous, {
+							args: [{
+								meta: null
+								name: __return
+								opt: false
+								type: null
+								value: null
+							}]
+							expr: {
+								expr: ETry({
+									expr: EBlock([{
+										expr: EReturn({
+											expr: ECall({
+												expr: EConst(CIdent(__return))
+												pos: #pos
+											}, [{
+												expr: ECall({
+													expr: EField({
+														expr: EField({
+															expr: EField({
+																expr: EConst(CIdent(tink))
+																pos: #pos
+															}, core)
+															pos: #pos
+														}, Outcome)
+														pos: #pos
+													}, Success)
+													pos: #pos
+												}, [{
+													expr: null <- expected value
+													pos: null <- expected value
+												}])
+												pos: #pos
+											}])
+											pos: #pos
+										})
+										pos: #pos
+									}])
+									pos: #pos
+								}, [{
+									expr: {
+										expr: ECall({
+											expr: EConst(CIdent(__return))
+											pos: #pos
+										}, [{
+											expr: ECall({
+												expr: EField({
+													expr: EField({
+														expr: EField({
+															expr: EConst(CIdent(tink))
+															pos: #pos
+														}, core)
+														pos: #pos
+													}, Outcome)
+													pos: #pos
+												}, Failure)
+												pos: #pos
+											}, [{
+												expr: EConst(CIdent(e))
+												pos: #pos
+											}])
+											pos: #pos
+										}])
+										pos: #pos
+									}
+									name: e
+									type: TPath({
+										name: Dynamic
+										pack: []
+										params: []
+										sub: null
+									})
+								}])
+								pos: #pos
+							}
+							params: []
+							ret: null
+						})
+						pos: #pos
+					}])
+					pos: #pos
+				}])
+				pos: #pos
+			})
+			pos: #pos
+		}
+		params: []
+		ret: null
+	})
+	meta: [{
+		name: async
+		params: []
+		pos: #pos
+	}]
+	name: sleep
+	pos: #pos
+}]
+line 161: expected value
+line 162: expected value

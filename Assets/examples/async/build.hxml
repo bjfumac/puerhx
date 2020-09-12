@@ -1,0 +1,4 @@
+--js examples/async/Resources/async.js.txt 
+-lib tink_await
+-D js-es=6
+--main examples.async.Main

@@ -1,0 +1,3 @@
+--js examples/ui/Resources/ui.js.txt 
+-D js-es=6
+--main examples.ui.Main

@@ -2,7 +2,7 @@
 using UnityEngine;
 using Puerts;
 
-namespace PuertsTest
+namespace PuerhxTest
 {
     public class Async : MonoBehaviour
     {

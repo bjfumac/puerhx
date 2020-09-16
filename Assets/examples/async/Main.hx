@@ -5,6 +5,6 @@ class Main {
 		var test1 = new TestInterval();
 		var test2 = new TestPromise();
 		// todo:等待修复promise结合settimeout的bug
-		// var test3 = new TestAwait();
+		var test3 = new TestAwait();
 	}
 }

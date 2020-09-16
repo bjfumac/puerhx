@@ -37,7 +37,7 @@ namespace Puerts
 
         public JsEnv(ILoader loader, int debugPort = -1)
         {
-            const int libVersionExpect = 3;
+            const int libVersionExpect = 5;
             int libVersion = PuertsDLL.GetLibVersion();
             if (libVersion != libVersionExpect)
             {
@@ -119,6 +119,10 @@ namespace Puerts
             {
                 string debugPath;
                 var context = loader.ReadFile(filename, out debugPath);
+                if (context == null)
+                {
+                    throw new InvalidProgramException("can not find " + filename);
+                }
                 Eval(context, debugPath);
             }
             else
@@ -129,7 +133,7 @@ namespace Puerts
 
         public void Eval(string chunk, string chunkName = "chunk")
         {
-            IntPtr resultInfo = PuertsDLL.Eval(isolate, chunk, chunkName);
+            IntPtr resultInfo = PuertsDLL.EvalChecked(isolate, chunk, chunkName);
             if (resultInfo == IntPtr.Zero)
             {
                 string exceptionInfo = PuertsDLL.GetLastExceptionInfo(isolate);
@@ -140,7 +144,7 @@ namespace Puerts
 
         public TResult Eval<TResult>(string chunk, string chunkName = "chunk")
         {
-            IntPtr resultInfo = PuertsDLL.Eval(isolate, chunk, chunkName);
+            IntPtr resultInfo = PuertsDLL.EvalChecked(isolate, chunk, chunkName);
             if (resultInfo == IntPtr.Zero)
             {
                 string exceptionInfo = PuertsDLL.GetLastExceptionInfo(isolate);

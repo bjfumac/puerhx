@@ -1,7 +1,6 @@
 package examples.async;
 
 import haxe.Timer;
-import js.lib.Promise;
 import csharp.unityengine.Debug;
 import tink.CoreApi.Future;
 
@@ -11,13 +10,13 @@ import tink.CoreApi.Future;
 	}
 
 	@async function processAwait() {
-		Debug.Log("Start");
-		var wait = @await waitForIt();
-		Debug.Log("End after 5s");
+		Debug.Log("Start sleep");
+		var wait = @await sleep();
+		Debug.Log("Stop sleep after 5s");
 		return wait;
 	}
 
-	function waitForIt() {
+	function sleep() {
 		return Future.async(function(cb) {
 			Timer.delay(function() {
 				cb(true);

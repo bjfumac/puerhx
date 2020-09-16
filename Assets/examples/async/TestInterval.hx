@@ -14,10 +14,10 @@ class TestInterval {
 			Debug.Log("Delay 1s");
 		}, 1000);
 		// interval invoke
-		timer = new Timer(2000);
+		timer = new Timer(1000);
 		timer.run = () -> {
 			counter++;
-			Debug.Log('Interval ${counter}s');
+			Debug.Log('After ${counter}s');
 			if (counter == 6) {
 				Debug.Log("Stop Interval after 6s");
 				timer.stop();

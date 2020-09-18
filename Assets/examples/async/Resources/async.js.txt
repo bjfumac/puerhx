@@ -65,8 +65,8 @@ class examples_async_TestAwait {
 		let _gthis = this;
 		return tink_core_Future.async(function(__return) {
 			try {
-				csharp_unityengine_Debug.Log("Start");
-				_gthis.waitForIt().handle(function(__t0) {
+				csharp_unityengine_Debug.Log("Start sleep");
+				_gthis.sleep().handle(function(__t0) {
 					try {
 						let __t0_result;
 						let _g = tink_await_OutcomeTools.getOutcome(null,__t0);
@@ -81,7 +81,7 @@ class examples_async_TestAwait {
 							return;
 						}
 						let wait = __t0_result;
-						csharp_unityengine_Debug.Log("End after 5s");
+						csharp_unityengine_Debug.Log("Stop sleep after 5s");
 						__return(tink_core_Outcome.Success(wait));
 						return;
 					} catch( _g ) {
@@ -95,7 +95,7 @@ class examples_async_TestAwait {
 			}
 		});
 	}
-	waitForIt() {
+	sleep() {
 		return tink_core_Future.async(function(cb) {
 			haxe_Timer.delay(function() {
 				cb(true);
@@ -113,12 +113,12 @@ class examples_async_TestInterval {
 		haxe_Timer.delay(function() {
 			csharp_unityengine_Debug.Log("Delay 1s");
 		},1000);
-		this.timer = new haxe_Timer(2000);
+		this.timer = new haxe_Timer(1000);
 		let _gthis = this;
 		this.timer.run = function() {
 			let ret = _gthis.counter++;
 			_gthis.counter = _gthis.counter | 0;
-			csharp_unityengine_Debug.Log("Interval " + _gthis.counter + "s");
+			csharp_unityengine_Debug.Log("After " + _gthis.counter + "s");
 			if(_gthis.counter == 6) {
 				csharp_unityengine_Debug.Log("Stop Interval after 6s");
 				_gthis.timer.stop();
